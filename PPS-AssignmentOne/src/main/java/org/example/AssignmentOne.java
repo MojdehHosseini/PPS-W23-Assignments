@@ -69,7 +69,7 @@ class Device {
             return false;
 
     }
-        public double getPrice()
+    public double getPrice()
     {
         return price;
     }
@@ -99,6 +99,8 @@ public class AssignmentOne {
         inventory[0]= new Device();
         inventory[2]= new Device(inventory[0]);
 
+        inventory[1]= new Device(1000,"Sumsung","S14",65161882);
+
 
 
         int option = 0;
@@ -119,7 +121,7 @@ public class AssignmentOne {
                         String pass = console.nextLine();
                         if (!pass.equals("password")) {
                             n++;
-                            System.out.println("the n: ?\n"+n);
+                            System.out.println("it was not correct. You have "+(3-n)+ " attempts ");
                         }
                         else {
                             System.out.println("How many computers do you want to add?\n");
@@ -137,9 +139,10 @@ public class AssignmentOne {
                                 System.out.println("You exceed the Capacity. The remaining Capacity is: "
                                         + remaining);
                             } else {
-                                System.out.println("the last one is: "+last);
+
 
                                 for (int i = last + 1; i < last + 1 + m; i++) {
+                                    System.out.println("You are entering the information of "+(i+1)+ "th devices");
                                     console.nextLine(); // This line you have to add (It consumes the \n character)
                                     System.out.println("Enter the brand of this device: ");
                                     String br = console.nextLine();
@@ -149,6 +152,7 @@ public class AssignmentOne {
                                     double pr = console.nextDouble();
                                     System.out.println("Enter the serial number of this device: ");
                                     long ser = console.nextLong();
+
 
                                     inventory[i] = new Device(pr, br, mo, ser);
 
@@ -164,7 +168,7 @@ public class AssignmentOne {
                 }
 
 
-                    break;
+                break;
                 case 2:
                     // code block
                     break;
@@ -176,28 +180,27 @@ public class AssignmentOne {
                     break;
 
                 case 5:
-                    // code block
+                {System.out.println("Good bye.\n");
                     break;
+                }
 
                 default:
                 {System.out.println("What do you want to do?\n" +
-                            "1. Enter new computers (password required)\n" +
-                            "2. Change information of a computer (password required) 3. Display all computers by a specific brand\n" +
-                            "4. Display all computers under a certain a price.\n" +
-                            "5. Quit\n" +
-                            "Please enter your choice >");
-                     option = console.nextInt();}
+                        "1. Enter new computers (password required)\n" +
+                        "2. Change information of a computer (password required) 3. Display all computers by a specific brand\n" +
+                        "4. Display all computers under a certain a price.\n" +
+                        "5. Quit\n" +
+                        "Please enter your choice >");
+                    option = console.nextInt();}
             }
 
         }
 
         System.out.println("Here is the information of the first Device:\n" + inventory[0] + "\n");
-
-        inventory[1]= new Device(1000,"Sumsung","S14",65161882);
         System.out.println("Here is the information of the second Device:\n" + inventory[1] + "\n");
         System.out.println("Here is the information of the third Device:\n" + inventory[2] + "\n");
 
-        //System.out.println("the number of devices\n" +  + "\n");
+
 
         // Now, compare these objects
 
